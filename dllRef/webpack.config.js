@@ -29,12 +29,8 @@ module.exports = {
     },
 	plugins: [
 		new webpack.DllReferencePlugin({
-			// context: path.resolve('../dll1/dist'),
 			scope: 'xyz',
-			// name: 'js/lib1_main.js',
-			// sourceType: 'umd',
 			manifest: require('../dll1/dist/xyz/js/manifest.json')
-			// content: { }
 		}),
 		new CopyWebpackPlugin([
 			{ from: 'index.html', to: path.resolve('./dist/web') },

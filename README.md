@@ -19,6 +19,6 @@ This is for trying out WebPack.  Initially starting with the DLL Plugin.
 * wps (start the web server)
 
 ### in the browser
-* http://localhost:8080/webpack-dev-server/index.html  (watch URL) 
+* http://localhost:8080/webpack-dev-server/index.html  (watch URL, try changing dllRef/src/js/example.js) 
 * http://localhost:8080/index.html
 
