@@ -1,0 +1,6 @@
+{
+  "name": "xyz_main",
+  "content": {
+    "./logger.js": 1
+  }
+}
