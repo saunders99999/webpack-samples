@@ -1,6 +1,6 @@
 # Webpack Samples
 
-* These are for tryout purposes only.  See the webpack site for better samples.
+This is for trying out WebPack.  Initially starting with the DLL Plugin.
 
 ### Setup
 * npm install (root directory)
