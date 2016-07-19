@@ -1,0 +1,11 @@
+/*** IMPORTS FROM imports-loader ***/
+var dep0 = require("./one");
+var dep1 = require("./two");
+var dep2 = require("./vendor-module");
+
+
+
+/*** EXPORTS FROM exports-loader ***/
+exports["./one"] = (dep0);
+exports["./two"] = (dep1);
+exports["./vendor-module"] = (dep2);
