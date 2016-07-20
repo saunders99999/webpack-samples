@@ -1,7 +1,8 @@
 'use strict';
 
-var path = require('path');
-var webpack = require('webpack');
+var path = require('path'),
+	webpack = require('webpack'),
+	CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
 	resolve: {
@@ -24,6 +25,7 @@ module.exports = {
 		library: 'xyz_[name]'
 	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),
 		new webpack.DllPlugin({
 			context: path.resolve('./src/xyz/js'),
 			path: path.resolve('./dist/xyz/js/manifest.json'),

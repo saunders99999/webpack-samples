@@ -57,10 +57,9 @@
   \***************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// http://stackoverflow.com/questions/35049806/dynamically-require-vendor-module-with-webpack
-	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function( )  {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function( )  {
 		var vendorsModules = __webpack_require__(/*! ./vendors */ 2),
-		    vendorModuleId = 'vendor-module',
+		    vendorModuleId = './vendor-module',
 		    vendorModule = vendorsModules[vendorModuleId];
 
 		console.log('module', vendorModule);

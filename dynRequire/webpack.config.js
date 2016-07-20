@@ -2,6 +2,7 @@
 
 var path = require('path'),
  	webpack = require('webpack'),
+	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var vendorsModules = [
@@ -23,7 +24,16 @@ module.exports = {
 			'app/example'
 		]
 	},
+	output: {
+		path: path.resolve('./dist/app/js'),
+		pathinfo: true,
+		filename: 'example_bundle.js'
+	},
+	devServer: {
+        contentBase: "./dist",
+    },
 	module: {
+		// http://stackoverflow.com/questions/35049806/dynamically-require-vendor-module-with-webpack
 		loaders: [
 			{
 				include: require.resolve( './src/js/vendors.js'),
@@ -36,13 +46,11 @@ module.exports = {
 			}
 		]
 	},
-	output: {
-		path: path.resolve('./dist/web/app/js'),
-		pathinfo: true,
-		filename: 'example_bundle.js'
-	},
-    devServer: {
-        contentBase: "./dist/web",
-    }
+	plugins: [
+		new CleanWebpackPlugin(['dist']),
+		new CopyWebpackPlugin([
+			{ from: 'index.html', to: path.resolve('./dist') }
+		])
+    ]
 };
 

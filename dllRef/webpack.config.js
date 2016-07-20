@@ -2,6 +2,7 @@
 
 var path = require('path'),
  	webpack = require('webpack'),
+ 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -25,17 +26,19 @@ module.exports = {
 		filename: 'example_bundle.js'
 	},
     devServer: {
-        contentBase: "./dist",
+        contentBase: "./dist"
+        // outputPath: path.resolve('./dist')
     },
 	plugins: [
-		new webpack.DllReferencePlugin({
-			scope: 'xyz',
-			manifest: require('../dll1/dist/xyz/js/manifest.json')
-		}),
+		new CleanWebpackPlugin(['dist']),
 		new CopyWebpackPlugin([
 			{ from: 'index.html', to: path.resolve('./dist') },
 			{ from: '../dll1/dist', to: path.resolve('./dist/dll1/dist') }
-		])
+		]),
+		new webpack.DllReferencePlugin({
+			scope: 'xyz',
+			manifest: require('../dll1/dist/xyz/js/manifest.json')
+		})
     ]
 };
 
