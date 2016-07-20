@@ -20,12 +20,12 @@ module.exports = {
 		]
 	},
 	output: {
-		path: path.resolve('./dist/web/app/js'),
+		path: path.resolve('./dist/app/js'),
 		pathinfo: true,
 		filename: 'example_bundle.js'
 	},
     devServer: {
-        contentBase: "./dist/web",
+        contentBase: "./dist",
     },
 	plugins: [
 		new webpack.DllReferencePlugin({
@@ -33,8 +33,8 @@ module.exports = {
 			manifest: require('../dll1/dist/xyz/js/manifest.json')
 		}),
 		new CopyWebpackPlugin([
-			{ from: 'index.html', to: path.resolve('./dist/web') },
-			{ from: '../dll1/dist', to: path.resolve('./dist/web/dll1/dist') }
+			{ from: 'index.html', to: path.resolve('./dist') },
+			{ from: '../dll1/dist', to: path.resolve('./dist/dll1/dist') }
 		])
     ]
 };
