@@ -1,0 +1,8 @@
+{
+  "name": "dll_lib",
+  "content": {
+    "./resolver.js": 1,
+    "./add.js": 2,
+    "./subtract.js": 3
+  }
+}
