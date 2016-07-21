@@ -1,14 +1,4 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("matlock"));
-	else if(typeof define === 'function' && define.amd)
-		define(["matlock"], factory);
-	else if(typeof exports === 'object')
-		exports["fred"] = factory(require("matlock"));
-	else
-		root["fred"] = factory(root["matlock"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_2__) {
-return /******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 
@@ -69,12 +59,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var lib = __webpack_require__(/*! matlock */ 2),
-	    add = lib.add,
-	    subtract = lib.subtract,
-	    result;
+	var result,
+		extResolver = __webpack_require__(/*! dyn_lib */ 2),
+		localResolve = function( expr, resolver ) {
+			return resolver( expr );
+		},
+		add = localResolve( 'add', extResolver ),
+		subtract = localResolve( 'subtract', extResolver );
 
-	result = subtract(add(42, 2), 2);
+		result = subtract(add(42, 2), 2);
 
 	console.log('result', result);
 	exports.exampleValue = subtract(add(42, 2), 2);
@@ -82,13 +75,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ },
 /* 2 */
 /*!**************************!*\
-  !*** external "matlock" ***!
+  !*** external "dyn_lib" ***!
   \**************************/
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+	module.exports = dyn_lib;
 
 /***/ }
-/******/ ])
-});
-;
+/******/ ]);

@@ -1,4 +1,4 @@
-var matlock =
+var dyn_lib =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -48,25 +48,30 @@ var matlock =
   \******************/
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! boot */1);
+	module.exports = __webpack_require__(/*! resolver */1);
 
 
 /***/ },
 /* 1 */
-/*!************************!*\
-  !*** ./src/js/boot.js ***!
-  \************************/
+/*!****************************!*\
+  !*** ./src/js/resolver.js ***!
+  \****************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	!(__WEBPACK_AMD_DEFINE_RESULT__ = function( require ){
-		var add = __webpack_require__( /*! ./add */ 2 ),
-		    subtract = __webpack_require__( /*! ./subtract */ 3 );
-
-		return {
-			add: add,
-			subtract: subtract
+	!(__WEBPACK_AMD_DEFINE_RESULT__ = function( require ){   
+		return function resolve( request ){
+			switch ( request ) {
+				case 'add':
+					return __webpack_require__( /*! ./add */ 2 );
+				case 'subtract':
+					return __webpack_require__( /*! ./subtract */ 3 );
+				default: {
+					console.log('bad module');
+					return;
+				}
+			}
 		};
 	}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 

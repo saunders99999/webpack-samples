@@ -11,14 +11,14 @@ module.exports = {
 			path.resolve('./src/js')
 		]
 	},
-	entry: [
-		'boot'
-	],
+	entry: {
+		main: [ 'resolver' ]
+	},
 	output: {
 		path: path.resolve('./dist/lib/js'),
 		pathinfo: true,
-		filename: 'example_library.js',
-		library: 'matlock',
+		filename: 'dyn_lib.js',
+		library: 'dyn_lib',
 		libraryTarget: "var"
 	},
 	plugins: [

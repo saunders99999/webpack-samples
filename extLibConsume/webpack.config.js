@@ -19,9 +19,7 @@ module.exports = {
 	output: {
 		path: path.resolve('./dist/app/js'),
 		pathinfo: true,
-		filename: 'example_bundle.js',
-		library: 'fred',
-		libraryTarget: "umd"
+		filename: 'example_bundle.js'
 	},
 	devServer: {
         contentBase: "./dist",
@@ -33,27 +31,7 @@ module.exports = {
 			{ from: '../extLib/dist', to: path.resolve('./dist/extLib/dist') }
 		])
     ],
- //    externals: [
-	// 	{ 'add' : 'matlock' },
-	// 	{
-	// 		'subtract': {
-	// 			root: 'subtract',
-	// 			commonjs2: './subtract',
-	// 			commonjs: ['./math', 'subtract'],
-	// 			amd: 'subtract'
-	// 		}
-	// 	}
-	// ]
-    externals: [
-    	'matlock'
-		// 'add',
-		// {
-		// 	subtract: {
-		// 		root: 'matlock.subtract',
-		// 		commonjs2: './subtract',
-		// 		commonjs: ['./math', 'subtract'],
-		// 		amd: 'subtract'
-		// 	}
-		// }
+     externals: [
+    	'dyn_lib'
 	]
 };
