@@ -1,0 +1,7 @@
+{
+  "name": "dll_lib",
+  "content": {
+    "./add.js": 1,
+    "./subtract.js": 2
+  }
+}
